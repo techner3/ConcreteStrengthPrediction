@@ -1,8 +1,8 @@
 import os
-from src.config import Configuration
-from src.logging import logger
 import numpy as np
 import pandas as pd
+from src.logging import logger
+from src.config import Configuration
 from sklearn.model_selection import train_test_split
 from src.utils import save_dataframe, load_csv_data
 
@@ -34,7 +34,7 @@ class DataIngestion:
             logger.exception(f"IQR calculation failed :{e}")
             raise e
 
-    def detecting_outliers(self,data)->list:
+    def detecting_outliers(self,data:pd.DataFrame)->list:
         
         outliers_column=[]
         try:
@@ -49,7 +49,7 @@ class DataIngestion:
             logger.exception(f"Detecting outliers failed :{e}")
             raise e
     
-    def detect_and_handle_outliers(self,data)->pd.DataFrame:
+    def detect_and_handle_outliers(self,data: pd.DataFrame)->pd.DataFrame:
 
         try: 
             outliers_column=self.detecting_outliers(data)
@@ -82,7 +82,7 @@ class DataIngestion:
             raise e
 
             
-    def train_test_split(self,data):
+    def train_test_split(self,data: pd.DataFrame):
 
         try:
             (X_train, X_test, y_train, y_test) = train_test_split(data.drop(self.target,axis=1),
