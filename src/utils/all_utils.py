@@ -1,5 +1,6 @@
 import os 
 import yaml
+import joblib
 import pandas as pd
 from datetime import datetime
 
@@ -42,6 +43,14 @@ def save_dataframe(data,path):
 
     try:
         data.to_csv(path,index=False)
+
+    except Exception as e:
+        raise e
+
+def save_model(model,path):
+    
+    try:
+        joblib.dump(model,path)
 
     except Exception as e:
         raise e
