@@ -110,6 +110,7 @@ class DataIngestion:
         try:
             data=load_csv_data(path=self.dataIngestion_config.raw_data_path)
             logger.info(f"Raw Data Loaded successfully from {self.dataIngestion_config.raw_data_path}")
+            logger.info(f"Total Number of Records in Raw Data:  {data.shape[0]}")
             data=self.detect_and_handle_outliers(data=data)
             self.train_test_split(data=data)
 
