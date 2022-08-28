@@ -10,14 +10,11 @@ stages:
       md5: 27b77a1434f770fea1fd76e94229b7af
       size: 59010
     - path: src/component/data_ingestion.py
-      md5: c0cea33750c9422a9d190db959628aa9
-      size: 4995
+      md5: f4c835365c105e93ba9b3bb7d81496a5
+      size: 5036
     - path: src/pipeline/stage_01_data_ingestion.py
       md5: 53434273f751cfc3e0e5bde8af3f2ba0
       size: 504
-    - path: src/utils/all_utils.py
-      md5: fc30b9b041aeec66eeb90652ded05f68
-      size: 886
     outs:
     - path: artifacts/DATA_INGESTION/test.csv
       md5: 3161299e47d9054577ce74b48433418a
@@ -25,3 +22,31 @@ stages:
     - path: artifacts/DATA_INGESTION/train.csv
       md5: f0965cd7317071b0a025bd65b1987b49
       size: 40678
+  data_transformation:
+    cmd: python src/pipeline/stage_02_data_transformation.py
+    deps:
+    - path: artifacts/DATA_INGESTION/test.csv
+      md5: 3161299e47d9054577ce74b48433418a
+      size: 10230
+    - path: artifacts/DATA_INGESTION/train.csv
+      md5: f0965cd7317071b0a025bd65b1987b49
+      size: 40678
+    - path: configs/config.yaml
+      md5: 93495f04e99f9d056a5e815de5d5d562
+      size: 506
+    - path: src/component/data_transformation.py
+      md5: 4c09dc9e25ca2087fa25758a58307fd3
+      size: 3184
+    - path: src/pipeline/stage_02_data_transformation.py
+      md5: 01a674f7ab0feb10bb43de5fbb2f86a2
+      size: 529
+    outs:
+    - path: artifacts/DATA_TRANSFORMATION/processed_test.csv
+      md5: 1924bad4d67ff1af8e7ff0dc81a75690
+      size: 33619
+    - path: artifacts/DATA_TRANSFORMATION/processed_train.csv
+      md5: 09907a9a54c32da8584d593d1ef6829e
+      size: 133622
+    - path: models/scaler.pkl
+      md5: b70242a2233b366397b62403a48196fd
+      size: 735

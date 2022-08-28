@@ -5,8 +5,20 @@ stages:
     - src/pipeline/stage_01_data_ingestion.py
     - src/component/data_ingestion.py
     - configs/config.yaml
-    - src/utils/all_utils.py
     - raw_data/concrete_data.csv
     outs:
     - artifacts/DATA_INGESTION/train.csv
     - artifacts/DATA_INGESTION/test.csv
+  
+  data_transformation: 
+    cmd: python src/pipeline/stage_02_data_transformation.py
+    deps:
+    - src/pipeline/stage_02_data_transformation.py
+    - src/component/data_transformation.py
+    - configs/config.yaml
+    - artifacts/DATA_INGESTION/train.csv
+    - artifacts/DATA_INGESTION/test.csv
+    outs:
+    - artifacts/DATA_TRANSFORMATION/processed_train.csv
+    - artifacts/DATA_TRANSFORMATION/processed_test.csv
+    - models/scaler.pkl
