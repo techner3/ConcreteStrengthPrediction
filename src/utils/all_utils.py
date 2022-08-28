@@ -1,7 +1,7 @@
-from datetime import datetime
 import os 
 import yaml
-
+import pandas as pd
+from datetime import datetime
 
 def create_directory(name):
 
@@ -25,6 +25,23 @@ def read_yaml(config_path)-> dict:
         with open(config_path) as yaml_file:
             config = yaml.safe_load(yaml_file)
         return config
+
+    except Exception as e:
+        raise e
+
+def load_csv_data(path)->pd.DataFrame:
+
+        try:
+            data=pd.read_csv(path)
+            return data
+
+        except Exception as e:
+            raise e
+
+def save_dataframe(data,path):
+
+    try:
+        data.to_csv(path,index=False)
 
     except Exception as e:
         raise e
