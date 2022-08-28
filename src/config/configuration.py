@@ -15,7 +15,7 @@ class Configuration:
                                     self.config["artifacts"]["ingestion"])
             create_directory(ingestion_dir)
             dataIngestion_config=DataIngestionConfig(
-                                raw_data_dir=self.config["raw_data"],
+                                raw_data_path=self.config["raw_data"],
                                 target=self.config["target"],
                                 ingestion_trainData_path=os.path.join(ingestion_dir,
                                                         self.config["artifacts"]["train_data"]),
