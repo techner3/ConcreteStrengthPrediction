@@ -1,0 +1,1 @@
+CONFIG_PATH="configs/configs.yaml"
