@@ -1,1 +1,1 @@
-CONFIG_PATH="configs/configs.yaml"
+CONFIG_PATH="configs/config.yaml"
