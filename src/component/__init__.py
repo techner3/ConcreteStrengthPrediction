@@ -1,0 +1,1 @@
+from src.component.data_ingestion import *
