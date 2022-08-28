@@ -1,0 +1,7 @@
+pandas
+pycaret 
+seaborn
+matplotlib
+numpy
+pandas-profiling
+dvc
