@@ -60,7 +60,7 @@ class DataTransformation:
                             path=self.dataTransformation_config.transformation_testData_path)
             logger.info(f"Transformed Test Data saved successfully at {self.dataTransformation_config.transformation_trainData_path}")
             save_model(model=self.scaler,path=self.dataTransformation_config.scaler_path)
-            logger.info(f"Scaler saved successfully at {self.dataTransformation_config.scaler_path}")
+            logger.info(f"Scaler Model saved successfully at {self.dataTransformation_config.scaler_path}")
             
 
         except Exception as e:
