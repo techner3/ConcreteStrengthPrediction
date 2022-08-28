@@ -1,0 +1,12 @@
+stages:
+  data_ingestion: 
+    cmd: python src/pipeline/stage_01_data_ingestion.py
+    deps:
+    - src/pipeline/stage_01_data_ingestion.py
+    - src/component/data_ingestion.py
+    - configs/config.yaml
+    - src/utils/all_utils.py
+    - raw_data/concrete_data.csv
+    outs:
+    - artifacts/DATA_INGESTION/train.csv
+    - artifacts/DATA_INGESTION/test.csv

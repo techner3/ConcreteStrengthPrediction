@@ -1,0 +1,27 @@
+schema: '2.0'
+stages:
+  data_ingestion:
+    cmd: python src/pipeline/stage_01_data_ingestion.py
+    deps:
+    - path: configs/config.yaml
+      md5: 93495f04e99f9d056a5e815de5d5d562
+      size: 506
+    - path: raw_data/concrete_data.csv
+      md5: 27b77a1434f770fea1fd76e94229b7af
+      size: 59010
+    - path: src/component/data_ingestion.py
+      md5: c0cea33750c9422a9d190db959628aa9
+      size: 4995
+    - path: src/pipeline/stage_01_data_ingestion.py
+      md5: 53434273f751cfc3e0e5bde8af3f2ba0
+      size: 504
+    - path: src/utils/all_utils.py
+      md5: fc30b9b041aeec66eeb90652ded05f68
+      size: 886
+    outs:
+    - path: artifacts/DATA_INGESTION/test.csv
+      md5: 3161299e47d9054577ce74b48433418a
+      size: 10230
+    - path: artifacts/DATA_INGESTION/train.csv
+      md5: f0965cd7317071b0a025bd65b1987b49
+      size: 40678
