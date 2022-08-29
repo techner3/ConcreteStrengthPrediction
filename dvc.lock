@@ -38,8 +38,8 @@ stages:
       md5: 4c09dc9e25ca2087fa25758a58307fd3
       size: 3184
     - path: src/pipeline/stage_02_data_transformation.py
-      md5: 01a674f7ab0feb10bb43de5fbb2f86a2
-      size: 529
+      md5: f5f5b33ac03dfbcb4eb45848404a7ddb
+      size: 534
     outs:
     - path: artifacts/DATA_TRANSFORMATION/processed_test.csv
       md5: 1924bad4d67ff1af8e7ff0dc81a75690
@@ -48,5 +48,30 @@ stages:
       md5: 09907a9a54c32da8584d593d1ef6829e
       size: 133622
     - path: models/scaler.pkl
-      md5: b70242a2233b366397b62403a48196fd
-      size: 735
+      md5: 6ff7bc12278f9e605bcff16e8e765c9a
+      size: 786
+  model_training:
+    cmd: python src/pipeline/stage_03_model_training.py
+    deps:
+    - path: artifacts/DATA_TRANSFORMATION/processed_train.csv
+      md5: 09907a9a54c32da8584d593d1ef6829e
+      size: 133622
+    - path: configs/config.yaml
+      md5: 93495f04e99f9d056a5e815de5d5d562
+      size: 506
+    - path: configs/params.yaml
+      md5: 1e0be867bd403f15ec7df15ba561bd73
+      size: 93
+    - path: src/component/model_training.py
+      md5: 0ec40090538943f82235c43eca308195
+      size: 2257
+    - path: src/pipeline/stage_03_model_training.py
+      md5: 5bca2571cd4086f81ed7b882047a5b1c
+      size: 502
+    outs:
+    - path: artifacts/MODEL_TRAINER/experiment_results.csv
+      md5: 17f29d845865f102fb644ea15a43edf0
+      size: 1336
+    - path: models/model.pkl
+      md5: 258240fb7a800d7ee2bcbef4b546265d
+      size: 280462
