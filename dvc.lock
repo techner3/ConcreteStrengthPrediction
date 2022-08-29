@@ -12,6 +12,12 @@ stages:
     - path: src/component/data_ingestion.py
       md5: f4c835365c105e93ba9b3bb7d81496a5
       size: 5036
+    - path: src/config/configuration.py
+      md5: 27527bec21e1892b605b2c7a9083b587
+      size: 4387
+    - path: src/entity/config_entity.py
+      md5: c2070f418ddf688e751a24c639a859de
+      size: 695
     - path: src/pipeline/stage_01_data_ingestion.py
       md5: 53434273f751cfc3e0e5bde8af3f2ba0
       size: 504
@@ -37,6 +43,12 @@ stages:
     - path: src/component/data_transformation.py
       md5: 4c09dc9e25ca2087fa25758a58307fd3
       size: 3184
+    - path: src/config/configuration.py
+      md5: 27527bec21e1892b605b2c7a9083b587
+      size: 4387
+    - path: src/entity/config_entity.py
+      md5: c2070f418ddf688e751a24c639a859de
+      size: 695
     - path: src/pipeline/stage_02_data_transformation.py
       md5: f5f5b33ac03dfbcb4eb45848404a7ddb
       size: 534
@@ -63,15 +75,49 @@ stages:
       md5: 1e0be867bd403f15ec7df15ba561bd73
       size: 93
     - path: src/component/model_training.py
-      md5: 0ec40090538943f82235c43eca308195
-      size: 2257
+      md5: 1b800ef6dce66dc066501fc0b16f9a4b
+      size: 2258
+    - path: src/config/configuration.py
+      md5: 27527bec21e1892b605b2c7a9083b587
+      size: 4387
+    - path: src/entity/config_entity.py
+      md5: c2070f418ddf688e751a24c639a859de
+      size: 695
     - path: src/pipeline/stage_03_model_training.py
       md5: 5bca2571cd4086f81ed7b882047a5b1c
       size: 502
     outs:
     - path: artifacts/MODEL_TRAINER/experiment_results.csv
-      md5: 17f29d845865f102fb644ea15a43edf0
-      size: 1336
+      md5: aee3d0fe1e031eb6cc2277a83345aab1
+      size: 1338
     - path: models/model.pkl
-      md5: 258240fb7a800d7ee2bcbef4b546265d
-      size: 280462
+      md5: f1d4b8d55634379b99869ef05ce3bd13
+      size: 563687
+  model_evaluation:
+    cmd: python src/pipeline/stage_04_model_evaluation.py
+    deps:
+    - path: artifacts/DATA_TRANSFORMATION/processed_test.csv
+      md5: 1924bad4d67ff1af8e7ff0dc81a75690
+      size: 33619
+    - path: configs/config.yaml
+      md5: 93495f04e99f9d056a5e815de5d5d562
+      size: 506
+    - path: models/model.pkl
+      md5: f1d4b8d55634379b99869ef05ce3bd13
+      size: 563687
+    - path: src/component/model_evaluation.py
+      md5: cd7da5d920056c554dae3c236ef38653
+      size: 2357
+    - path: src/config/configuration.py
+      md5: 27527bec21e1892b605b2c7a9083b587
+      size: 4387
+    - path: src/entity/config_entity.py
+      md5: c2070f418ddf688e751a24c639a859de
+      size: 695
+    - path: src/pipeline/stage_04_model_evaluation.py
+      md5: bb95579d6d7ba87e8c54058c116a2397
+      size: 514
+    outs:
+    - path: artifacts/MODEL_EVALUATOR/test_results.json
+      md5: d3f4901b1a908927ddcc66a2841d5518
+      size: 57

@@ -6,6 +6,8 @@ stages:
     - src/component/data_ingestion.py
     - configs/config.yaml
     - raw_data/concrete_data.csv
+    - src/entity/config_entity.py
+    - src/config/configuration.py
     outs:
     - artifacts/DATA_INGESTION/train.csv
     - artifacts/DATA_INGESTION/test.csv
@@ -18,6 +20,8 @@ stages:
     - configs/config.yaml
     - artifacts/DATA_INGESTION/train.csv
     - artifacts/DATA_INGESTION/test.csv
+    - src/entity/config_entity.py
+    - src/config/configuration.py
     outs:
     - artifacts/DATA_TRANSFORMATION/processed_train.csv
     - artifacts/DATA_TRANSFORMATION/processed_test.csv
@@ -31,6 +35,21 @@ stages:
     - configs/config.yaml
     - configs/params.yaml
     - artifacts/DATA_TRANSFORMATION/processed_train.csv
+    - src/entity/config_entity.py
+    - src/config/configuration.py
     outs: 
     - models/model.pkl
     - artifacts/MODEL_TRAINER/experiment_results.csv
+
+  model_evaluation:
+    cmd: python src/pipeline/stage_04_model_evaluation.py
+    deps: 
+    - src/pipeline/stage_04_model_evaluation.py
+    - src/component/model_evaluation.py
+    - configs/config.yaml
+    - artifacts/DATA_TRANSFORMATION/processed_test.csv
+    - models/model.pkl
+    - src/entity/config_entity.py
+    - src/config/configuration.py
+    outs: 
+    - artifacts/MODEL_EVALUATOR/test_results.json
