@@ -1,6 +1,7 @@
 import os 
 import yaml
 import joblib
+import json
 import pandas as pd
 from datetime import datetime
 
@@ -52,5 +53,23 @@ def save_model(model,path):
     try:
         joblib.dump(model,path)
 
+    except Exception as e:
+        raise e
+
+def save_json(data,path):
+
+    try: 
+        with open(path, 'w', encoding ='utf8') as json_file:
+            json.dump(data, json_file)
+
+    except Exception as e:
+        raise e
+
+def load_model(path):
+
+    try:
+        model=joblib.load(path)
+        return model
+    
     except Exception as e:
         raise e
