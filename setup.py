@@ -13,12 +13,12 @@ setup(
     name="src",
     version="0.0.1",
     author="Techner",
-    description="",
+    description="Concrete Strength Prediction",
     long_description=long_description,
     long_description_content_type="text/markdown",
-    url="https://github.com/techner3/dvc-ML-demo-AIOps",
+    url="https://github.com/techner3/ConcreteStrengthPredcition",
     author_email="k.balamurali303@gmail.com",
     packages=["src"],
-    python_requires=">=3.8",
+    python_requires=">=3.7",
     install_requires=requirements_list()
 )
