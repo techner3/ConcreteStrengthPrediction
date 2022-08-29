@@ -1,6 +1,6 @@
 target : "concrete_compressive_strength"
 raw_data : raw_data/concrete_data.csv
-model_dir: models
+model_dir: prediction_service/models
 scaler_file: scaler.pkl
 model_file: model.pkl
 artifacts: 

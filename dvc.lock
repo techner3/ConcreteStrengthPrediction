@@ -4,8 +4,8 @@ stages:
     cmd: python src/pipeline/stage_01_data_ingestion.py
     deps:
     - path: configs/config.yaml
-      md5: 93495f04e99f9d056a5e815de5d5d562
-      size: 506
+      md5: 0b9ce9f354e0a20dca08741e52a76174
+      size: 525
     - path: raw_data/concrete_data.csv
       md5: 27b77a1434f770fea1fd76e94229b7af
       size: 59010
@@ -38,8 +38,8 @@ stages:
       md5: f0965cd7317071b0a025bd65b1987b49
       size: 40678
     - path: configs/config.yaml
-      md5: 93495f04e99f9d056a5e815de5d5d562
-      size: 506
+      md5: 0b9ce9f354e0a20dca08741e52a76174
+      size: 525
     - path: src/component/data_transformation.py
       md5: 4c09dc9e25ca2087fa25758a58307fd3
       size: 3184
@@ -59,7 +59,7 @@ stages:
     - path: artifacts/DATA_TRANSFORMATION/processed_train.csv
       md5: 09907a9a54c32da8584d593d1ef6829e
       size: 133622
-    - path: models/scaler.pkl
+    - path: prediction_service/models/scaler.pkl
       md5: 6ff7bc12278f9e605bcff16e8e765c9a
       size: 786
   model_training:
@@ -69,8 +69,8 @@ stages:
       md5: 09907a9a54c32da8584d593d1ef6829e
       size: 133622
     - path: configs/config.yaml
-      md5: 93495f04e99f9d056a5e815de5d5d562
-      size: 506
+      md5: 0b9ce9f354e0a20dca08741e52a76174
+      size: 525
     - path: configs/params.yaml
       md5: 1e0be867bd403f15ec7df15ba561bd73
       size: 93
@@ -88,11 +88,11 @@ stages:
       size: 502
     outs:
     - path: artifacts/MODEL_TRAINER/experiment_results.csv
-      md5: aee3d0fe1e031eb6cc2277a83345aab1
-      size: 1338
-    - path: models/model.pkl
-      md5: f1d4b8d55634379b99869ef05ce3bd13
-      size: 563687
+      md5: fbdd75d84456eea1ebd10f06c02237ba
+      size: 1329
+    - path: prediction_service/models/model.pkl
+      md5: b75eca5257b50d74d9a3917e7f20b5c7
+      size: 126054
   model_evaluation:
     cmd: python src/pipeline/stage_04_model_evaluation.py
     deps:
@@ -100,11 +100,11 @@ stages:
       md5: 1924bad4d67ff1af8e7ff0dc81a75690
       size: 33619
     - path: configs/config.yaml
-      md5: 93495f04e99f9d056a5e815de5d5d562
-      size: 506
-    - path: models/model.pkl
-      md5: f1d4b8d55634379b99869ef05ce3bd13
-      size: 563687
+      md5: 0b9ce9f354e0a20dca08741e52a76174
+      size: 525
+    - path: prediction_service/models/model.pkl
+      md5: b75eca5257b50d74d9a3917e7f20b5c7
+      size: 126054
     - path: src/component/model_evaluation.py
       md5: cd7da5d920056c554dae3c236ef38653
       size: 2357
@@ -119,5 +119,5 @@ stages:
       size: 514
     outs:
     - path: artifacts/MODEL_EVALUATOR/test_results.json
-      md5: d3f4901b1a908927ddcc66a2841d5518
-      size: 57
+      md5: 9eaecb532ce78269371414c5c30c7be2
+      size: 60
