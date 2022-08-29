@@ -22,3 +22,15 @@ stages:
     - artifacts/DATA_TRANSFORMATION/processed_train.csv
     - artifacts/DATA_TRANSFORMATION/processed_test.csv
     - models/scaler.pkl
+  
+  model_training:
+    cmd: python src/pipeline/stage_03_model_training.py
+    deps:
+    - src/pipeline/stage_03_model_training.py
+    - src/component/model_training.py
+    - configs/config.yaml
+    - configs/params.yaml
+    - artifacts/DATA_TRANSFORMATION/processed_train.csv
+    outs: 
+    - models/model.pkl
+    - artifacts/MODEL_TRAINER/experiment_results.csv
