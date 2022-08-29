@@ -1,7 +1,7 @@
 import os 
 from src.constant import CONFIG_PATH,PARAMS_PATH
 from src.utils import read_yaml, create_directory
-from src.entity import DataIngestionConfig,DataTransformationConfig,ModelTrainerConfig,ModelParamsConfig
+from src.entity import DataIngestionConfig,DataTransformationConfig,ModelTrainerConfig,ModelParamsConfig,ModelEvalutorConfig
 class Configuration:
 
     def __init__(self):
@@ -9,7 +9,7 @@ class Configuration:
         self.config=read_yaml(CONFIG_PATH)
         
 
-    def get_dataIngestion_config(self):
+    def get_dataIngestion_config(self)->DataIngestionConfig:
 
         try:
             ingestion_dir=os.path.join(self.config["artifacts"]["dir"],
@@ -28,7 +28,7 @@ class Configuration:
         except Exception as e:
             raise e
 
-    def get_dataTransformation_config(self):
+    def get_dataTransformation_config(self)->DataTransformationConfig:
 
         try:
             transformation_dir=os.path.join(self.config["artifacts"]["dir"],
@@ -48,7 +48,7 @@ class Configuration:
         except Exception as e:
             raise e
 
-    def get_modelTrainer_config(self):
+    def get_modelTrainer_config(self)->ModelTrainerConfig:
 
         try:
             trainer_dir=os.path.join(self.config["artifacts"]["dir"],
@@ -57,6 +57,7 @@ class Configuration:
             create_directory(trainer_dir)
             create_directory(model_dir)
             modelTrainer_config=ModelTrainerConfig(
+                                target=self.config["target"],
                                 model_path=os.path.join(model_dir,
                                                         self.config["model_file"]),
                                 experimentResults_path=os.path.join(trainer_dir,
@@ -67,12 +68,11 @@ class Configuration:
         except Exception as e:
             raise e
 
-    def get_modelParams_config(self):
+    def get_modelParams_config(self)->ModelParamsConfig:
 
         try:
             self.params=read_yaml(PARAMS_PATH)
             modelParams_config=ModelParamsConfig(
-                target=self.config["target"],
                 fold_shuffle=self.params["fold_shuffle"],
                 train_size=self.params["train_size"],
                 log_experiment=self.params["log_experiment"],
@@ -80,6 +80,20 @@ class Configuration:
                 silent=self.params["silent"],
             )
             return modelParams_config
+
+        except Exception as e:
+            raise e
+
+    def get_modelEvaluator_config(self)->ModelEvalutorConfig:
+
+        try:
+            evaluator_dir=os.path.join(self.config["artifacts"]["dir"],
+                                        self.config["artifacts"]["evaluator"])
+            create_directory(evaluator_dir)
+            modelEvalutor_config=ModelEvalutorConfig(
+                        test_results_path=os.path.join(evaluator_dir,self.config["artifacts"]["result_file"]),
+            )
+            return modelEvalutor_config
 
         except Exception as e:
             raise e
