@@ -10,7 +10,7 @@ def main():
         logger.info(">>>>>>>>> Data Transformation Stage 02 Completed <<<<<<<<<")
 
     except Exception as e:
-        logger.exception(f"Stage 01 Data Ingestion failed with {e}")
+        logger.exception(f"Stage 02 Data Transformation failed with {e}")
         raise e
 
 if __name__ == '__main__':
