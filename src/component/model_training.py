@@ -18,7 +18,7 @@ class ModelTrainer:
         
         try: 
             exp=pyreg.setup(data=data, 
-                target = self.modelParams_config.target,
+                target = self.modelTrainer_config.target,
                 fold_shuffle=self.modelParams_config.fold_shuffle,
                 log_experiment = self.modelParams_config.log_experiment,
                 silent = self.modelParams_config.silent,
