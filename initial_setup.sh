@@ -17,6 +17,6 @@ touch .gitignore
 echo "Necessary files created."
 
 echo "Virtual environment creation started."
-conda create -p venv python==3.8 -y
+conda create -p venv python==3.7 -y
 echo "Virtual environment created."
 
