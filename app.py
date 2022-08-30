@@ -1,7 +1,8 @@
-from flask import Flask, render_template,request,abort,send_file
-from src.utils import load_csv_data
-from prediction_service.predictor import ConcreteData,ConcreteStrengthPredictor
 import os
+from src.utils import load_csv_data,get_log_dataframe
+from flask import Flask, render_template,request,abort
+from prediction_service.predictor import ConcreteData,ConcreteStrengthPredictor
+
 
 CONCRETE_DATA_KEY = "concrete_data"
 CONCRETE_STRENGTH_VALUE_KEY = "concrete_strength_value"
@@ -32,38 +33,28 @@ def view_experiment_history():
     }
     return render_template('exp_results.html', context=context)
 
-@app.route('/artifact', defaults={'req_path': 'premium'})
-@app.route('/artifact/<path:req_path>')
-def render_artifact_dir(req_path):
-    os.makedirs("premium", exist_ok=True)
-    # Joining the base and the requested path
-    print(f"req_path: {req_path}")
+@app.route(f'/logs', defaults={'req_path': f'logs'})
+@app.route(f'/logs/<path:req_path>')
+def render_log_dir(req_path):
     abs_path = os.path.join(req_path)
-    print(abs_path)
-    # Return 404 if path doesn't exist
     if not os.path.exists(abs_path):
         return abort(404)
 
     # Check if path is a file and serve
     if os.path.isfile(abs_path):
-        if ".html" in abs_path:
-            with open(abs_path, "r", encoding="utf-8") as file:
-                content = ''
-                for line in file.readlines():
-                    content = f"{content}{line}"
-                return content
-        return send_file(abs_path)
+        log_df = get_log_dataframe(abs_path)
+        context = {"log": log_df.to_html(classes="table-striped", index=False)}
+        return render_template('log.html', context=context)
 
     # Show directory contents
-    files = {os.path.join(abs_path, file_name): file_name for file_name in os.listdir(abs_path) if
-             "artifact" in os.path.join(abs_path, file_name)}
+    files = {os.path.join(abs_path, file): file for file in os.listdir(abs_path)}
 
     result = {
         "files": files,
         "parent_folder": os.path.dirname(abs_path),
         "parent_label": abs_path
     }
-    return render_template('files.html', result=result)
+    return render_template('logs.html', result=result)
 
 @app.route('/predict', methods=['GET', 'POST'])
 def predict():
@@ -101,4 +92,4 @@ def predict():
     return render_template("predict.html", context=context)
 
 if __name__ == "__main__":
-    app.run(debug=True)
+    app.run()
