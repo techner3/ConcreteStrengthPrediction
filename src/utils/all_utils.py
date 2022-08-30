@@ -73,3 +73,18 @@ def load_model(path):
     
     except Exception as e:
         raise e
+
+def get_log_dataframe(file_path):
+
+    try:
+        data={
+        "Message":[]
+        }
+        with open(file_path) as log_file:
+            for line in log_file.readlines():
+                data["Message"].append(line)
+        log_df = pd.DataFrame.from_dict(data)
+        return log_df
+    
+    except Exception as e:
+        raise e
