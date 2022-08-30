@@ -1,0 +1,19 @@
+[2022-08-30 23:14:47,177: INFO: stage_01_data_ingestion]: >>>>>>>>> Data Ingestion Stage 01 Started <<<<<<<<<
+[2022-08-30 23:14:47,179: INFO: data_ingestion]: Raw Data Loaded successfully from raw_data/concrete_data.csv
+[2022-08-30 23:14:47,179: INFO: data_ingestion]: Total Number of Records in Raw Data:  1030
+[2022-08-30 23:14:47,200: INFO: data_ingestion]: Duplicates detected
+[2022-08-30 23:14:47,206: INFO: data_ingestion]: Handled Duplicates
+[2022-08-30 23:14:47,209: INFO: data_ingestion]: Number of Outliers for blast_furnace_slag : 2
+[2022-08-30 23:14:47,210: INFO: data_ingestion]: Number of Outliers for water : 15
+[2022-08-30 23:14:47,210: INFO: data_ingestion]: Number of Outliers for superplasticizer : 10
+[2022-08-30 23:14:47,210: INFO: data_ingestion]: Number of Outliers for fine_aggregate  : 5
+[2022-08-30 23:14:47,210: INFO: data_ingestion]: Number of Outliers for age : 59
+[2022-08-30 23:14:47,210: INFO: data_ingestion]: Number of Outliers for concrete_compressive_strength : 8
+[2022-08-30 23:14:47,218: INFO: data_ingestion]: Dependent Feature Outliers handled
+[2022-08-30 23:14:47,221: INFO: data_ingestion]: Independent Features Outliers handled
+[2022-08-30 23:14:47,228: INFO: data_ingestion]: Train Test Split done successfully
+[2022-08-30 23:14:47,228: INFO: data_ingestion]: Number of training samples: 797
+[2022-08-30 23:14:47,228: INFO: data_ingestion]: Number of testing samples: 200
+[2022-08-30 23:14:47,238: INFO: data_ingestion]: Train Data saved succesfully at artifacts\DATA_INGESTION\train.csv
+[2022-08-30 23:14:47,242: INFO: data_ingestion]: Test Data saved succesfully at artifacts\DATA_INGESTION\test.csv
+[2022-08-30 23:14:47,242: INFO: stage_01_data_ingestion]: >>>>>>>>> Data Ingestion Stage 01 Completed <<<<<<<<<

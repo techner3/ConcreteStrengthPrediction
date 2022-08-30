@@ -1,0 +1,9 @@
+[2022-08-30 23:14:51,907: INFO: stage_02_data_transformation]: >>>>>>>>> Data Transformation Stage 02 Started <<<<<<<<<
+[2022-08-30 23:14:51,919: INFO: data_transformation]: Target Feature Separated for Train Data
+[2022-08-30 23:14:51,919: INFO: data_transformation]: Target Feature Separated for Test Data
+[2022-08-30 23:14:51,936: INFO: data_transformation]: Preprocesing of Train Data completed
+[2022-08-30 23:14:51,937: INFO: data_transformation]: Preprocesing of Test Data completed
+[2022-08-30 23:14:51,952: INFO: data_transformation]: Transformed Train Data saved successfully at artifacts\DATA_TRANSFORMATION\processed_train.csv
+[2022-08-30 23:14:51,957: INFO: data_transformation]: Transformed Test Data saved successfully at artifacts\DATA_TRANSFORMATION\processed_train.csv
+[2022-08-30 23:14:51,961: INFO: data_transformation]: Scaler Model saved successfully at prediction_service/models\scaler.pkl
+[2022-08-30 23:14:51,961: INFO: stage_02_data_transformation]: >>>>>>>>> Data Transformation Stage 02 Completed <<<<<<<<<
