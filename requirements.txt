@@ -5,3 +5,5 @@ matplotlib
 numpy
 pandas-profiling
 dvc
+mkdocs
+flask
