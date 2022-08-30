@@ -13,6 +13,22 @@ class DataIngestion:
         self.config_obj=Configuration()
         self.dataIngestion_config=self.config_obj.get_dataIngestion_config()
         self.target=self.dataIngestion_config.target
+
+    def detect_and_handle_duplicates(self,data: pd.DataFrame)->pd.DataFrame:
+
+        try:
+            is_duplicates=data.duplicated().sum()
+            if is_duplicates:
+                logger.info("Duplicates detected")
+                data.drop_duplicates(inplace=True)
+                logger.info("Handled Duplicates")
+                return data
+            else:
+                logger.info("No Duplicates present")
+        
+        except Exception as e:
+            logger.exception(f"Handling Duplicates Failed failed :{e}")
+            raise e
     
     
     def detect_outliers_iqr(self,data)->list:
@@ -111,6 +127,7 @@ class DataIngestion:
             data=load_csv_data(path=self.dataIngestion_config.raw_data_path)
             logger.info(f"Raw Data Loaded successfully from {self.dataIngestion_config.raw_data_path}")
             logger.info(f"Total Number of Records in Raw Data:  {data.shape[0]}")
+            data=self.detect_and_handle_duplicates(data=data)
             data=self.detect_and_handle_outliers(data=data)
             self.train_test_split(data=data)
 
