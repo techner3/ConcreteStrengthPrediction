@@ -106,8 +106,8 @@ stages:
       md5: bf0ee080afe337b35b42899076a55c06
       size: 237608
     - path: src/component/model_evaluation.py
-      md5: cd7da5d920056c554dae3c236ef38653
-      size: 2357
+      md5: b37c65b44868c4f3272a19f39d6e44bf
+      size: 2369
     - path: src/config/configuration.py
       md5: 27527bec21e1892b605b2c7a9083b587
       size: 4387

@@ -48,7 +48,7 @@ class ModelEvaluator:
             predictions=self.model_predictor(data=test_feature,model=model)
             logger.info("Predictions Done")
             result=self.model_evaluator(actual_values=label,predictions=predictions)
-            logger.info("Metrics calculated")
+            logger.info(f"Metrics calculated : {result}")
             save_json(data=result,path=self.modelEvaluator_config.test_results_path)
             logger.info(f"Test Results Saved at {self.modelEvaluator_config.test_results_path}")
 

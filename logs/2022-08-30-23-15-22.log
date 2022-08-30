@@ -1,7 +1,0 @@
-[2022-08-30 23:15:27,564: INFO: stage_04_model_evaluation]: >>>>>>>>> Model Evaluation Stage 04 Started <<<<<<<<<
-[2022-08-30 23:15:27,617: INFO: model_evaluation]: Test Data loaded successfully
-[2022-08-30 23:15:27,619: INFO: model_evaluation]: Test feature and Target separated successfully
-[2022-08-30 23:15:27,629: INFO: model_evaluation]: Predictions Done
-[2022-08-30 23:15:27,642: INFO: model_evaluation]: Metrics calculated
-[2022-08-30 23:15:27,643: INFO: model_evaluation]: Test Results Saved at artifacts\MODEL_EVALUATOR\test_results.json
-[2022-08-30 23:15:27,645: INFO: stage_04_model_evaluation]: >>>>>>>>> Model Evaluation Stage 04 Completed <<<<<<<<<
