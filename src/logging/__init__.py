@@ -1,1 +1,1 @@
-from src.logging.get_logger import logger
+from src.logging.get_logger import *
