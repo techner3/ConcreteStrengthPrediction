@@ -7,3 +7,4 @@ pandas-profiling
 dvc
 mkdocs
 flask
+gunicorn

@@ -1,0 +1,17 @@
+venv/
+notebooks/
+artifacts/DATA_INGESTION/
+artifacts/DATA_TRANSFORAMTION/
+artifacts/MODEL_EVALUATOR/
+configs/
+dvc.lock
+dvc.yaml
+initial_setup.sh
+.gitignore
+.dvcignore
+logs.log
+*.md
+requirements.txt
+setup.py
+.dvc/
+.ipynb_checkpoints/
