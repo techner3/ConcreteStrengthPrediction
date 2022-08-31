@@ -1,5 +1,8 @@
 pandas
 joblib
 flask
+sklearn
+lightgbm
+PyYAML==5.4.1
 gunicorn
--e .
+
