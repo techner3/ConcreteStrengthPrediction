@@ -10,8 +10,6 @@ initial_setup.sh
 .gitignore
 .dvcignore
 logs.log
-*.md
 requirements.txt
-setup.py
 .dvc/
 .ipynb_checkpoints/
