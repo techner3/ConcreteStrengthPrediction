@@ -13,20 +13,25 @@ app = Flask(__name__,template_folder=TEMPLATE_DIR)
 
 @app.route('/', methods=['GET', 'POST'])
 def index():
+
     try:
         return render_template('index.html')
+
     except Exception as e:
         return str(e)
 
 @app.route('/profile_report', methods=['GET', 'POST'])
 def profile_report():
+
     try:
         return render_template('ProfileReport.html')
+
     except Exception as e:
         return str(e)
 
 @app.route('/view_experiment_hist', methods=['GET', 'POST'])
 def view_experiment_history():
+
     experiment_df = load_csv_data(os.path.join("artifacts","MODEL_TRAINER","experiment_results.csv"))
     context = {
         "experiment": experiment_df.to_html(classes='table table-striped col-12')
@@ -58,6 +63,7 @@ def render_log_dir(req_path):
 
 @app.route('/predict', methods=['GET', 'POST'])
 def predict():
+    
     context = {
         CONCRETE_DATA_KEY: None,
         CONCRETE_STRENGTH_VALUE_KEY: None
