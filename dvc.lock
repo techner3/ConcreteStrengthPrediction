@@ -59,9 +59,31 @@ stages:
     - path: artifacts/DATA_TRANSFORMATION/processed_train.csv
       md5: c641d3a125d6fabd5215f63cfcb56262
       size: 130768
-    - path: prediction_service/models/scaler.pkl
-      md5: 9d1475adb731ab3100aec3300c424566
-      size: 786
+  model_evaluation:
+    cmd: python src/pipeline/stage_04_model_evaluation.py
+    deps:
+    - path: artifacts/DATA_TRANSFORMATION/processed_test.csv
+      md5: 2521436f7bbc4902e9609264bf7b7346
+      size: 32845
+    - path: configs/config.yaml
+      md5: 0b9ce9f354e0a20dca08741e52a76174
+      size: 525
+    - path: src/component/model_evaluation.py
+      md5: b37c65b44868c4f3272a19f39d6e44bf
+      size: 2369
+    - path: src/config/configuration.py
+      md5: 27527bec21e1892b605b2c7a9083b587
+      size: 4387
+    - path: src/entity/config_entity.py
+      md5: c2070f418ddf688e751a24c639a859de
+      size: 695
+    - path: src/pipeline/stage_04_model_evaluation.py
+      md5: bb95579d6d7ba87e8c54058c116a2397
+      size: 514
+    outs:
+    - path: artifacts/MODEL_EVALUATOR/test_results.json
+      md5: 4e5137b761061576b9c5353cdbfd2c8f
+      size: 60
   model_training:
     cmd: python src/pipeline/stage_03_model_training.py
     deps:
@@ -86,38 +108,3 @@ stages:
     - path: src/pipeline/stage_03_model_training.py
       md5: 5bca2571cd4086f81ed7b882047a5b1c
       size: 502
-    outs:
-    - path: artifacts/MODEL_TRAINER/experiment_results.csv
-      md5: df894529e4ecb70686269dd5698cdc41
-      size: 1330
-    - path: prediction_service/models/model.pkl
-      md5: bf0ee080afe337b35b42899076a55c06
-      size: 237608
-  model_evaluation:
-    cmd: python src/pipeline/stage_04_model_evaluation.py
-    deps:
-    - path: artifacts/DATA_TRANSFORMATION/processed_test.csv
-      md5: 2521436f7bbc4902e9609264bf7b7346
-      size: 32845
-    - path: configs/config.yaml
-      md5: 0b9ce9f354e0a20dca08741e52a76174
-      size: 525
-    - path: prediction_service/models/model.pkl
-      md5: bf0ee080afe337b35b42899076a55c06
-      size: 237608
-    - path: src/component/model_evaluation.py
-      md5: b37c65b44868c4f3272a19f39d6e44bf
-      size: 2369
-    - path: src/config/configuration.py
-      md5: 27527bec21e1892b605b2c7a9083b587
-      size: 4387
-    - path: src/entity/config_entity.py
-      md5: c2070f418ddf688e751a24c639a859de
-      size: 695
-    - path: src/pipeline/stage_04_model_evaluation.py
-      md5: bb95579d6d7ba87e8c54058c116a2397
-      size: 514
-    outs:
-    - path: artifacts/MODEL_EVALUATOR/test_results.json
-      md5: 4e5137b761061576b9c5353cdbfd2c8f
-      size: 60

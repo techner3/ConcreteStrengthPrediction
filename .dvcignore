@@ -1,3 +1,6 @@
 # Add patterns of files dvc should ignore, which could improve
 # the performance. Learn more at
 # https://dvc.org/doc/user-guide/dvcignore
+prediction_service/models/model.pkl
+prediction_service/models/scaler.pkl
+artifacts/MODEL_TRAINER/experiment_results.csv

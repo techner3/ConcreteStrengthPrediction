@@ -25,7 +25,6 @@ stages:
     outs:
     - artifacts/DATA_TRANSFORMATION/processed_train.csv
     - artifacts/DATA_TRANSFORMATION/processed_test.csv
-    - prediction_service/models/scaler.pkl
   
   model_training:
     cmd: python src/pipeline/stage_03_model_training.py
@@ -36,10 +35,8 @@ stages:
     - configs/params.yaml
     - artifacts/DATA_TRANSFORMATION/processed_train.csv
     - src/entity/config_entity.py
-    - src/config/configuration.py
-    outs: 
-    - prediction_service/models/model.pkl
-    - artifacts/MODEL_TRAINER/experiment_results.csv
+    - src/config/configuration.py 
+    
 
   model_evaluation:
     cmd: python src/pipeline/stage_04_model_evaluation.py
@@ -48,7 +45,6 @@ stages:
     - src/component/model_evaluation.py
     - configs/config.yaml
     - artifacts/DATA_TRANSFORMATION/processed_test.csv
-    - prediction_service/models/model.pkl
     - src/entity/config_entity.py
     - src/config/configuration.py
     outs: 
