@@ -9,11 +9,10 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v2
       - name: DVC Stage
-        uses: actions/setup-python@v2
         with:
           python-version: '3.7'
         env: 
-          repo_token: ${{ secrets.GITHUB_TOKEN }} 
+          repo_token: ${{ secrets.TOKEN_GITHUB }} 
         run: |
           pip install -r requirements.txt 
           dvc repro
