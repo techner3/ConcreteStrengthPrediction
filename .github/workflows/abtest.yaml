@@ -15,4 +15,5 @@ jobs:
           repo_token: ${{ secrets.TOKEN_GITHUB }}
         run: |
           pip install -r requirements.txt
+          pip install -e .
           dvc repro -v
