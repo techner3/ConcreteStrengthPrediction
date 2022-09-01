@@ -8,14 +8,6 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v2
-      - name: DVC Stage
-        with:
-          python-version: '3.7'
-        env: 
-          repo_token: ${{ secrets.TOKEN_GITHUB }} 
-        run: |
-          pip install -r requirements.txt 
-          dvc repro
       - name: Build, Push and Release a Docker container to Heroku. 
         uses: gonuit/heroku-docker-deploy@v1.3.3 
         with:
