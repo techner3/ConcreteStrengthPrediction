@@ -1,4 +1,4 @@
-# Concrete Strength Prediction
+# Concrete Compressive Strength Prediction
 
 ![my badge](https://img.shields.io/badge/Python-3-blue)
 ![my badge](https://img.shields.io/badge/Machine-Learning-brightgreen)
@@ -11,11 +11,11 @@
 
 # About The Project
 
-The project has been developed to predict the strength of concrete based on a amount of various things added to make concrete such as cement, water, fly ash, coarse aggregate, fine aggregate, superplasticizer, blast furnace and its age.
+The project has been developed to predict the compressive strength of concrete based on quantity of its mixture properties such as cement, water, fly ash, coarse aggregate, fine aggregate, superplasticizer, blast furnace and the age of concrete.
 
 # Project Description 
 
-Initally, the raw data has been analysed to understand the data and the data has been pre processed by checking null values, checking duplicates etc... The processed data is then scaled and then passed it for model training. The best model si fine tuned and is used for the prediction. A web app has been developed for this project where you can estimate the strength of the concrete. The app is deployed in Heroku.
+Initally, the raw data has been analysed to understand the data and the data has been pre processed by checking null values, checking duplicates etc... The processed data is then scaled and then passed it for model training. The best model is fine tuned and is used for the prediction. A web app has been developed for this project where you can estimate the compressive strength of the concrete. The app is deployed in Heroku.
 
 # Dataset Used
 
@@ -35,6 +35,7 @@ Dataset : [Link](https://www.kaggle.com/datasets/elikplim/concrete-compressive-s
 * logs - The directory contains logs of the each stage
 * notebooks - This directory contains notebooks used for EDA 
 * prediction_service - This directory contains all the saved models, the files necessary for the frontend for the webapp and also predictor script
+* src - This directory contains all the files needed for the exceution of the training pipeline
 
 # Preview of the Web App
 
