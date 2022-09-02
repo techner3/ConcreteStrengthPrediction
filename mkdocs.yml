@@ -1,0 +1,49 @@
+site_name: Concrete Compressive Strength Prediction
+
+nav:
+  - Home: index.md
+  - Web App: webapp.md
+
+site_author: Balamurali K
+
+
+repo_name: techner3/ConcreteStrengthPrediction
+repo_url: https://github.com/techner3/ConcreteStrengthPrediction
+
+
+theme:
+  name: material
+  features:
+    - navigation.tabs
+    - navigation.sections
+    - toc.integrate
+    - navigation.top
+  language: en
+  palette:
+    - scheme: default
+      primary: indigo
+      accent: indigo
+      toggle:
+        icon: material/brightness-4
+    - scheme: slate
+      primary: indigo
+      accent: indigo
+      toggle:
+        icon: material/brightness-7
+
+
+
+extra:
+  social:
+    - icon: fontawesome/brands/github-alt
+      link: https://github.com/techner3
+    - icon: fontawesome/brands/linkedin
+      link: https://www.linkedin.com/in/bala-murali-138987199/
+    
+  
+  
+plugins:
+  - search
+
+copyright: |
+  &copy; 2022 <a href="https://github.com/techner3"  target="_blank" rel="noopener">Balamurali K</a>
