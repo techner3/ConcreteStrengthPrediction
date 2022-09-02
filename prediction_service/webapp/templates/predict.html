@@ -13,7 +13,7 @@
 
 
         <form action="/predict" method="post">
-            <legend>Concrete Strength Prediction Form</legend>
+            <legend>Concrete Compressive Strength Prediction Form</legend>
             <div class="mb-3">
                 <label class="form-label">Cement</label>
                 <input class="form-control" type="text" name="cement" placeholder="Enter a quantity of Cement in kg"
@@ -67,7 +67,7 @@
     <div class="col-md-6 col-sm-12 col-xs-6 col-lg-6">
         <div class="card">
             <div class="card-header">
-                Concrete Strength Prediction
+                Concrete Compressive Strength Prediction
             </div>
             <div class="card-body">
         {% if context['concrete_data'] is not none %}
