@@ -57,7 +57,7 @@ table-layout: fixed;
                 aria-controls="navbarTogglerDemo03" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
-            <a class="navbar-brand" href="/">Concrete Strength Prediction</a>
+            <a class="navbar-brand" href="/">Concrete Compressive Strength Prediction</a>
             <div class="collapse navbar-collapse" id="navbarTogglerDemo03">
                 <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                     <li class="nav-item">
@@ -70,7 +70,7 @@ table-layout: fixed;
                         <a class="nav-link {% if 'artifact' in request.path %} active {% endif %}" href="/profile_report">Profile Report of the Raw Data</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link {% if 'predict' in request.path %} active {% endif %}" href="/predict">Estimate Concrete Strength</a>
+                        <a class="nav-link {% if 'predict' in request.path %} active {% endif %}" href="/predict">Estimate Compressive Concrete Strength</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link {% if 'predict' in request.path %} active {% endif %}" href="/view_experiment_hist">Model Experiment Results</a>
@@ -94,7 +94,7 @@ table-layout: fixed;
                     <a style=" text-decoration: none;color:rgb(0, 0, 0)" href="/profile_report">Profile Report of the Raw Data</a>
                 </li>
                 <li class="list-group-item py-1 {% if 'predict' in request.path %} active {% endif %}">
-                    <a style=" text-decoration: none;color:black" href="/predict">Estimate Concrete Strength</a>
+                    <a style=" text-decoration: none;color:black" href="/predict">Estimate Compressive Concrete Strength</a>
                 </li>
                 <li class="list-group-item py-1 {% if 'update_model_config' in request.path %} active {% endif %}">
                     <a style=" text-decoration: none;color:black" href="/view_experiment_hist">Model Experiment Results</a>
