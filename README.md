@@ -54,4 +54,4 @@ The webapp also been dockerized.You can use the below comman to pull the docker 
 # Points to Note : 
 
 * The app may take while to load ,Please bear with it 
-* Please refer to the documentation for more detailed understanding 
+* Please refer to the documentation for more detailed understanding ![here](https://techner3.github.io/ConcreteStrengthPrediction/).
