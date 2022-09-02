@@ -25,19 +25,16 @@ Dataset : [Link](https://www.kaggle.com/datasets/elikplim/concrete-compressive-s
 
 # Project Structure
 
+<img width="146" alt="image" src="https://user-images.githubusercontent.com/58848985/188082159-4d6c7ad1-d8e5-4d61-99c0-0cec3dcdda0f.png">
 
-
-* data_given - This directory contains the data that has been given for both training as well as predicting 
-* data - This directory contains good and bad data after validation of files with respect to everything in schema for training and prediction
-* frontend - This directory contains files related to frontend of the web app
-* logs - This directories contains logs file that has been generated during both training and prediction
-* mlruns - This directory contains all the logs from the experimentation of finding the best model
-* notebooks - This directory contains notebooks used for EDA and testing purposes
-* savedModels - This directory contains all the saved models for each cluster and also clustering and scaling models
-* savedModel - This directory contains plots geenrated udring training
-* schema - This directaory contains schema as JSon file used for data validation 
-* src - This directory contains the source code for this project
-* test_dir - This directory contains data used for tesing the web app
+* .dvc - This directory contains file related to dvc
+* .github - This directory contains files related github actions and workflows
+* Documents - This directory contains all the documents such HLD, LLD etc.. related to this project
+* artifacts - This directories contains all the artifacts with respect to each stage in the training pipeline
+* configs - This directory contains config.yaml and params.yaml necessary for training pipeline
+* logs - The directory contains logs of the each stage
+* notebooks - This directory contains notebooks used for EDA 
+* prediction_service - This directory contains all the saved models, the files necessary for the frontend for the webapp and also predictor script
 
 # Preview of the Web App
 
@@ -45,8 +42,13 @@ WebApp : [Link](https://concretestrength33.herokuapp.com/)
 
 Home page :
 
+<img width="958" alt="image" src="https://user-images.githubusercontent.com/58848985/188081955-72f12fd4-9d36-4f8c-a19f-e52f0d7db732.png">
 
+Docker:
 
+The webapp also been dockerized.You can use the below comman to pull the docker image with respect to this project.
+
+```docker pull techner3/concretestrength```
 
 # Points to Note : 
 
