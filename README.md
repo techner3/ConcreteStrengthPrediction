@@ -15,7 +15,7 @@ The project has been developed to predict the strength of concrete based on a am
 
 # Project Description 
 
-Initally, the raw data has been analysed to understand the data and the data has been pre processed by checking null values, checking duplicates etc... The processed data is then scaled and then passed it for model training. The best model si fine tuned and is used for the prediction. A web app has been developed for this project which takes a CSV file as an input and returns the predictions as a result. The app is deployed in Heroku.
+Initally, the raw data has been analysed to understand the data and the data has been pre processed by checking null values, checking duplicates etc... The processed data is then scaled and then passed it for model training. The best model si fine tuned and is used for the prediction. A web app has been developed for this project where you can estimate the strength of the concrete. The app is deployed in Heroku.
 
 # Dataset Used
 
